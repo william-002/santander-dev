@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://dpg-d2d5hg3uibrs73fs4hqg-a.oregon-postgres.render.com:5432/santaderdb
+    username: santaderdb_user
+    password: 9hfw0jgkfiFzZolGkQ0BjxOixcWKiWTi
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
