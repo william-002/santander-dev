@@ -1,0 +1,4 @@
+buildCommand: ./gradlew build
+startCommand: java -jar build/libs/seu-app.jar
+envVars:
+  JAVA_HOME: /opt/render/project/.java
