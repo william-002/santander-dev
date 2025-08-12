@@ -1,13 +1,15 @@
 services:
   - type: web
     name: santander-dev
-    runtime: java
-    buildCommand: "./gradlew build"
-    startCommand: "java -jar build/libs/santander-dev-0.0.1-SNAPSHOT.jar"
+    env: docker
+    buildCommand: ./gradlew clean build
+    startCommand: java -jar build/libs/santander-dev-0.0.1-SNAPSHOT.jar
     envVars:
       - key: SPRING_DATASOURCE_URL
-        value: jdbc:postgresql://dpg-d2d5hg3uibrs73fs4hqg-a.oregon-postgres.render.com/santaderdb
+        fromSecret: SPRING_DATASOURCE_URL
       - key: SPRING_DATASOURCE_USERNAME
-        value: santaderdb_user
+        fromSecret: SPRING_DATASOURCE_USERNAME
       - key: SPRING_DATASOURCE_PASSWORD
-        value: 9hfw0jgkfiFzZolGkQ0BjxOixcWKiWTi
+        fromSecret: SPRING_DATASOURCE_PASSWORD
+    buildpacks:
+      - heroku/java
