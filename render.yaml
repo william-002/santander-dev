@@ -1,4 +1,13 @@
-buildCommand: ./gradlew build
-startCommand: java -jar build/libs/seu-app.jar
-envVars:
-  JAVA_HOME: /opt/render/project/.java
+services:
+  - type: web
+    name: santander-dev
+    runtime: java
+    buildCommand: "./gradlew build"
+    startCommand: "java -jar build/libs/santander-dev-0.0.1-SNAPSHOT.jar"
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:postgresql://dpg-d2d5hg3uibrs73fs4hqg-a.oregon-postgres.render.com/santaderdb
+      - key: SPRING_DATASOURCE_USERNAME
+        value: santaderdb_user
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: 9hfw0jgkfiFzZolGkQ0BjxOixcWKiWTi
